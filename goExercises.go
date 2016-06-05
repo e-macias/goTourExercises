@@ -24,6 +24,7 @@ func main() {
 	fmt.Println(math.Sqrt(2))
 }
 
+
 //https://tour.golang.org/moretypes/18
 //Exercise: Slices
 package main
@@ -43,4 +44,32 @@ func Pic(dx, dy int) [][]uint8 {
 
 func main() {
 	pic.Show(Pic)
+}
+
+
+//https://tour.golang.org/moretypes/23
+//Exercise: Maps
+package main
+
+import (
+	"golang.org/x/tour/wc"
+	"strings"
+)
+
+func WordCount(s string) map[string]int {
+	wordsMap := make(map[string]int)
+	for _, key := range strings.Fields(s) {
+		count, ok := wordsMap[key]
+		if ok == true {
+			count++
+			wordsMap[key] = count //++count not allowed
+		} else {
+			wordsMap[key] = 1
+		}
+	}
+	return wordsMap
+}
+
+func main() {
+	wc.Test(WordCount)
 }
