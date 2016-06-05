@@ -1,5 +1,5 @@
-#https://tour.golang.org/flowcontrol/8
-#Exercise: Loops and Functions
+//https://tour.golang.org/flowcontrol/8
+//Exercise: Loops and Functions
 package main
 
 import (
@@ -22,4 +22,26 @@ func Sqrt(x float64) float64 {
 func main() {
 	fmt.Println(Sqrt(2))
 	fmt.Println(math.Sqrt(2))
+}
+
+//https://tour.golang.org/moretypes/18
+//Exercise: Slices
+package main
+
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+	a := make([][]uint8, dy)
+	for i := range a {
+		a[i] = make([]uint8, dx)
+		for j := range a[i] {
+			a[i][j] = uint8((i^j)/2+(i^j))
+		}
+	}
+	
+	return a
+}
+
+func main() {
+	pic.Show(Pic)
 }
