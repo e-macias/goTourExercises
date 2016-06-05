@@ -38,7 +38,6 @@ func Pic(dx, dy int) [][]uint8 {
 			a[i][j] = uint8((i^j)/2+(i^j))
 		}
 	}
-	
 	return a
 }
 
